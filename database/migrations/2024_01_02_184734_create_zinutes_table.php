@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('vartotojai', function (Blueprint $table) {
+        Schema::create('zinutes', function (Blueprint $table) {
             $table->id();
-
-            $table->foreignId('role_id')->constrained('roles');
-            $table->string('vardas');
-            $table->string('slaptazodis');
+            $table->text('tekstas');
         });
     }
 
@@ -25,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('vartotojai');
+        Schema::dropIfExists('zinutes');
     }
 };

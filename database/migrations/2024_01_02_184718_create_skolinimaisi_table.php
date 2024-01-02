@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('vartotojai', function (Blueprint $table) {
+        Schema::create('skolinimaisi', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('role_id')->constrained('roles');
-            $table->string('vardas');
-            $table->string('slaptazodis');
+            $table->dateTime('pradzios_data');
+            $table->dateTime('pabaigos_data');
+            $table->dateTime('grazinimo_data')->nullable();
         });
     }
 
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('vartotojai');
+        Schema::dropIfExists('skolinimaisi');
     }
 };

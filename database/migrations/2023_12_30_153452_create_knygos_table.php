@@ -18,8 +18,6 @@ return new class extends Migration
             $table->string('autorius');    // Adding 'autorius' attribute as a string
             $table->unsignedSmallInteger('leidimo_metai'); // Adding 'leidimo_metai' attribute as an unsigned small integer
             $table->unsignedInteger('egzemplioriu_skaicius'); // Adding 'egzemplioriu_skaicius' attribute as an unsigned integer
-
-            $table->timestamps();
         });
     }
 
