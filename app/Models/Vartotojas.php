@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Vartotojas extends Model {
     protected $table = 'vartotojai'; // Define the table name explicitly
 
+    public $timestamps = false;
     // Define the relationship between Vartotojas and Skolinimasis
     public function skolinimases() {
         return $this->hasMany(Skolinimasis::class);
@@ -26,4 +28,10 @@ class Vartotojas extends Model {
     public function role() {
         return $this->belongsTo(Role::class);
     }
+    // Add a unique validation rule for 'vardas' in the model
+    public static $rules = [
+        'vardas' => 'unique:vartotojai,vardas',
+    ];
+
+    use HasFactory;
 }
