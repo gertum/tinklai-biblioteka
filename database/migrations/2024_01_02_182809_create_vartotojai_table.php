@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
 
             $table->foreignId('role_id')->constrained('roles');
-            $table->string('vardas');
+            $table->string('vardas')->unique();
             $table->string('slaptazodis');
         });
     }
