@@ -19,4 +19,5 @@ use App\Http\Controllers\KnygosController;
 //    return view('knygu_sarasas');
 //
 //});
-Route::get('/', [KnygosController::class, 'sarasas']);
+//Route::get('/', [KnygosController::class, 'sarasas']);
+Route::get('/{filter?}', [KnygosController::class, 'sarasas'])->name('knygos');

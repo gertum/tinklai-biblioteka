@@ -8,16 +8,22 @@ use Illuminate\Http\Request;
 class KnygosController extends Controller
 {
     // Display a list of all books
-    public function sarasas()
+    public function sarasas($filter = false)
     {
+        if ($filter) {
+            $knygos = Knyga::atrinktiNepaimtas()->get(); // Fetch books using the scope method
+            return view('knygu_sarasas', compact('knygos', 'filter'));
+        }
+
         $knygos = Knyga::all();
-        return view('knygu_sarasas', compact('knygos'));
+        return view('knygu_sarasas', compact('knygos', 'filter'));
     }
-    public function scopeAvailableBooks($query)
+
+
+    public function nepaimtuSarasas()
     {
-        return $query->where('egzemplioriu_skaicius', '>', 0)
-            ->whereDoesntHave('skolinimai', function ($query) {
-                $query->whereNull('grazinimo_data');
-            });
+        $nepaimtosKnygos = Knyga::atrinktiNepaimtas()->get(); // Fetch books using the scope method
+        return view('knygu_sarasas', compact('nepaimtosKnygos'));
     }
+
 }
