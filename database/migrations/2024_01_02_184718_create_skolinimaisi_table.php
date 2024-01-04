@@ -17,6 +17,11 @@ return new class extends Migration
             $table->dateTime('pradzios_data');
             $table->dateTime('pabaigos_data');
             $table->dateTime('grazinimo_data')->nullable();
+
+            $table->unsignedBigInteger('vartotojas_id'); // Add the foreign key column
+            $table->foreign('vartotojas_id')->references('id')->on('vartotojai'); // Assuming 'id' is the primary key in 'vartotojai' table
+            $table->unsignedBigInteger('knyga_id'); // Add the foreign key column for book
+            $table->foreign('knyga_id')->references('id')->on('knygos'); // Assuming 'id' is the primary key in 'knygos' table
         });
     }
 

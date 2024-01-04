@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 
 /**
  * @extends Factory<Vartotojas>
+ *     probably not going to use this much if at all
  */
 class VartotojasFactory extends Factory
 {

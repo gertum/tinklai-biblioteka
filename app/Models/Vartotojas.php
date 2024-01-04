@@ -10,7 +10,7 @@ class Vartotojas extends Model {
 
     public $timestamps = false;
     // Define the relationship between Vartotojas and Skolinimasis
-    public function skolinimases() {
+    public function skolinimasis() {
         return $this->hasMany(Skolinimasis::class);
     }
 

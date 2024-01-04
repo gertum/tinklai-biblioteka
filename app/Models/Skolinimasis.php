@@ -9,8 +9,9 @@ class Skolinimasis extends Model {
 
     public $timestamps = false;
     // Define the relationship between Skolinimasis and Knyga
-    public function knyga() {
-        return $this->belongsTo(Knyga::class);
+    public function knyga()
+    {
+        return $this->belongsTo(Knyga::class, 'knyga_id');
     }
 
     // Define the relationship between Skolinimasis and Vartotojas
