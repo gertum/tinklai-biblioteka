@@ -13,11 +13,11 @@
 
 @if($filter)
 
-    <h1>Nepaimtų knygų sąrašas</h1>
+    <h2>Nepaimtų knygų sąrašas</h2>
     <a href="{{ route('knygos', ['filter' => false]) }}"><button>Rodyti visas knygas</button></a>
 @else
 
-    <h1>Knygų sąrašas</h1>
+    <h2>Knygų sąrašas</h2>
     <a href="{{ route('knygos', ['filter' => true]) }}"><button>Rodyti tik nepaimtas knygas</button></a>
 @endif
 

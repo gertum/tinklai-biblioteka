@@ -36,9 +36,9 @@ return [
     */
 
     'guards' => [
-        'web' => [
+        'custom' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'custom',
         ],
     ],
 
@@ -60,10 +60,9 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'custom' => [
             'driver' => 'eloquent',
             'model' => App\Models\Vartotojas::class,
-            'table' => 'vartotojas',
         ],
     ],
 
