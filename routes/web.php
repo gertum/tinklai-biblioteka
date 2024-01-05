@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KnygosController;
-
+use App\Http\Controllers\Auth\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,9 +20,12 @@ use App\Http\Controllers\KnygosController;
 //
 //});
 //Route::get('/', [KnygosController::class, 'sarasas']);
-Route::get('/{filter?}', [KnygosController::class, 'sarasas'])->name('knygos');
 
 // Authentication Routes...
-Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-Route::post('login', 'Auth\LoginController@login');
-Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('login', [LoginController::class, 'login']);
+Route::post('logout', [LoginController::class, 'login'])->name('logout');
+
+//homepage
+Route::get('/{filter?}', [KnygosController::class, 'sarasas'])->name('knygos');
+

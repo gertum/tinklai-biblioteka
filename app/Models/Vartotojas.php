@@ -4,8 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
 
-class Vartotojas extends Model {
+class Vartotojas extends Model implements Authenticatable{
     protected $table = 'vartotojai'; // Define the table name explicitly
 
     public $timestamps = false;
@@ -33,5 +35,14 @@ class Vartotojas extends Model {
         'vardas' => 'unique:vartotojai,vardas',
     ];
 
-    use HasFactory;
+    /**
+     * this is here for authentication purposes
+     * @return string vardas
+     */
+    public function username()
+    {
+        return 'vardas'; // Replace 'vardas' with the field you want to use for authentication
+    }
+
+    use HasFactory, AuthenticatableTrait;
 }
