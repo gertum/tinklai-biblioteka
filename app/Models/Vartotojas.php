@@ -41,8 +41,15 @@ class Vartotojas extends Model implements Authenticatable{
      */
     public function username()
     {
-        return 'vardas'; // Replace 'vardas' with the field you want to use for authentication
+        return $this->getAttribute('vardas' );
     }
 
+    /** this is here for authentication purposes
+     * @return mixed|string
+     */
+    public function getAuthPassword()
+    {
+        return $this->slaptazodis;
+    }
     use HasFactory, AuthenticatableTrait;
 }

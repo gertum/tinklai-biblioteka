@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Knyga;
+use App\Models\Vartotojas;
 use Illuminate\Http\Request;
 
 class KnygosController extends Controller
@@ -10,13 +11,20 @@ class KnygosController extends Controller
     // Display a list of all books
     public function sarasas($filter = false)
     {
-        if ($filter) {
-            $knygos = Knyga::atrinktiNepaimtas()->get(); // Fetch books using the scope method
-            return view('knygu_sarasas', compact('knygos', 'filter'));
+        $knygos = Knyga::query()
+            ->atrinkti($filter)
+            ->get(); // Fetch books using the scope method
+
+        $username = 'anonymous';
+
+        /** @var Vartotojas $user */
+        $user = auth()->user();
+
+        if ( $user) {
+            $username = $user->getAttribute('vardas' );
         }
 
-        $knygos = Knyga::all();
-        return view('knygu_sarasas', compact('knygos', 'filter'));
+        return view('knygu_sarasas', ['knygos' => $knygos, 'filter' => $filter, 'username' => $username]);
     }
 
 

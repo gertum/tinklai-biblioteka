@@ -8,6 +8,7 @@
 
 <header>
     <h1>Sveiki atvykę į bibliotekos sistemą!</h1>
+    <h2>{{ $username }}</h2>
 </header>
 
 

@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Prisijungimas</title>
     <!-- Include any CSS stylesheets here -->
     <!-- Example: <link rel="stylesheet" href="path/to/styles.css"> -->
 </head>
@@ -28,14 +28,14 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="card-header">{{ __('Prisijungimas') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="vardas" class="col-md-4 col-form-label text-md-right">{{ __('Username') }}</label>
+                            <label for="vardas" class="col-md-4 col-form-label text-md-right">{{ __('Vartotojo vardas') }}</label>
 
                             <div class="col-md-6">
                                 <input id="vardas" type="text" class="form-control @error('vardas') is-invalid @enderror" name="vardas" value="{{ old('vardas') }}" required autocomplete="username" autofocus>
@@ -49,7 +49,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="slaptazodis" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                            <label for="slaptazodis" class="col-md-4 col-form-label text-md-right">{{ __('Slaptažodis') }}</label>
 
                             <div class="col-md-6">
                                 <input id="slaptazodis" type="password" class="form-control @error('slaptazodis') is-invalid @enderror" name="slaptazodis" required autocomplete="current-password">
@@ -65,7 +65,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
+                                    {{ __('Prisijungti') }}
                                 </button>
                             </div>
                         </div>
