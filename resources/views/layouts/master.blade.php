@@ -10,8 +10,12 @@
 
     <!-- Your header content goes here -->
     <a href="{{ route('login') }}">
-        <button>Login</button>
+        <button>Prisijungti</button>
     </a>
+    <a href="{{ route('logout') }}">
+        <button>Atsijungti</button>
+    </a>
+
 </header>
 
 <main>

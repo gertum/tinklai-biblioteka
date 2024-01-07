@@ -17,7 +17,7 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        DB::enableQueryLog();
+//        DB::enableQueryLog();
         $credentials = $request->only('vardas', 'slaptazodis');
 
 //        $credentials['password']=$credentials['slaptazodis'];
@@ -29,8 +29,8 @@ class LoginController extends Controller
             return redirect()->intended('/'); // Redirect to intended page after login
         } else {
             // Authentication failed
-            $queries = DB::getQueryLog();
-            Log::debug('Queries executed:', $queries);
+//            $queries = DB::getQueryLog();
+//            Log::debug('Queries executed:', $queries);
 
             return back()->withErrors(['vardas' => 'Neteisingi prisijungimo duomenys']);
         }
@@ -38,6 +38,7 @@ class LoginController extends Controller
 
     public function logout()
     {
+        Log::debug("hello");
         Auth::logout();
         return redirect('/');
     }
