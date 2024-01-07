@@ -12,6 +12,11 @@
     <a href="{{ route('login') }}">
         <button>Prisijungti</button>
     </a>
+
+    <a href="{{ route('register') }}">
+        <button>Registruotis</button>
+    </a>
+
     <a href="{{ route('logout') }}">
         <button>Atsijungti</button>
     </a>

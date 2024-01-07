@@ -26,6 +26,9 @@ Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [LoginController::class, 'login']);
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
+Route::get('register', [LoginController::class, 'showRegisterForm'])->name('register');
+Route::post('register', [LoginController::class, 'register']);
+
 //Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
 //homepage
