@@ -63,7 +63,6 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\Vartotojas::class,
-            'username' => 'vardas',
         ],
     ],
 
