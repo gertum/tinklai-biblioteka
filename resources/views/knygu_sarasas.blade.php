@@ -13,7 +13,6 @@
 
 @section('content')
     <h1>Sveiki atvykę į bibliotekos sistemą!</h1>
-    <h2>{{ $username }}</h2>
 
 
     @if($filter)
@@ -51,7 +50,16 @@
                 <td>{{ $knyga->leidimo_metai }}</td>
                 <td>{{ $knyga->egzemplioriu_skaicius }}</td>
                 <td>{{ $knyga->laisvi_egzemplioriai }}</td>
-                <!-- Add more columns' data if needed -->
+
+
+                    @if (Auth::check())
+                    <td>
+                        <a href="{{ route('logout') }}">
+                            <a href="{{ route('skolintis', ['book_id' => $knyga->id]) }}">Skolintis</a>
+                        </a>
+                    </td>
+                    @endif
+
             </tr>
         @endforeach
         </tbody>

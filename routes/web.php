@@ -31,6 +31,8 @@ Route::post('register', [LoginController::class, 'register']);
 
 //Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
+
+Route::get('/skolintis', [KnygosController::class, 'skolintis'])->name('skolintis');
 //homepage
 Route::get('/{filter?}', [KnygosController::class, 'sarasas'])->name('knygos');
 
