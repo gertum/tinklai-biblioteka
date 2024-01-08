@@ -10,6 +10,11 @@ use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
 class Vartotojas extends Model implements Authenticatable{
     protected $table = 'vartotojai'; // Define the table name explicitly
 
+    protected $fillable = [
+        'vardas', 'slaptazodis', 'role_id',
+        // Add any other fields you have in your user table
+    ];
+
     public $timestamps = false;
     // Define the relationship between Vartotojas and Skolinimasis
     public function skolinimaisi() {
