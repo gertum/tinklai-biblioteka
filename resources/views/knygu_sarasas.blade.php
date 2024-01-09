@@ -16,15 +16,11 @@
 
 
     @if($filter)
-
-        <h2>Nepaimtų knygų sąrašas</h2>
-        <a href="{{ route('knygos', ['filter' => false]) }}">
+        <a href="{{ route('knygos') }}">
             <button>Rodyti visas knygas</button>
         </a>
     @else
-
-        <h2>Knygų sąrašas</h2>
-        <a href="{{ route('knygos', ['filter' => true]) }}">
+        <a href="{{ route('filtruotos_knygos') }}">
             <button>Rodyti tik nepaimtas knygas</button>
         </a>
     @endif
@@ -55,7 +51,14 @@
                     @if (Auth::check())
                     <td>
                         <a href="{{ route('logout') }}">
-                            <a href="{{ route('skolintis', ['book_id' => $knyga->id]) }}">Skolintis</a>
+{{--                            <a href="{{ route('skolintis', ['book_id' => $knyga->id]) }}">Skolintis</a>--}}
+
+
+                            <a href="#" data-toggle="modal" data-target="#skolintis_confirmation{{$knyga->id}}">
+                                Skolintis
+                            </a>
+
+                            @include('modals.skolintis_confirmation', ['knyga' => $knyga])
                         </a>
                     </td>
                     @endif

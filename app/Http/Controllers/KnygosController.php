@@ -10,24 +10,29 @@ use Illuminate\Http\Request;
 class KnygosController extends Controller
 {
     // Display a list of all books
-    public function sarasas($filter = false)
+//    public function sarasas($filter = false)
+//    {
+//        $knygos = Knyga::query()
+//            ->atrinkti($filter)
+//            ->get(); // Fetch books using the scope method
+//
+//        return view('knygu_sarasas', ['knygos' => $knygos, 'filter' => $filter
+//        ]);
+//    }
+
+    public function sarasas()
+    {
+        $knygos = Knyga::all();
+        return view('knygu_sarasas', ['knygos' => $knygos, 'filter' => false]);
+    }
+
+    public function filteredSarasas()
     {
         $knygos = Knyga::query()
-            ->atrinkti($filter)
-            ->get(); // Fetch books using the scope method
+            ->atrinkti(true) // Or specify your filter logic here
+            ->get();
 
-//        $username = 'anonymous';
-//
-//        /** @var Vartotojas $user */
-//        $user = auth()->user();
-//
-//        if ( $user) {
-//            $username = $user->getAttribute('vardas' );
-//        }
-
-        return view('knygu_sarasas', ['knygos' => $knygos, 'filter' => $filter
-//            , 'username' => $username
-        ]);
+        return view('knygu_sarasas', ['knygos' => $knygos, 'filter' => true]);
     }
 
 
@@ -51,6 +56,11 @@ class KnygosController extends Controller
 
         // Redirect to a specific route after successfully storing the book
         return redirect()->route('knygos')->with('success', 'Knyga sėkmingai pridėta!');
+    }
+
+    public function showSkolintisForm()
+    {
+        return view('knyga_skolintis');
     }
     public function skolintis(Request $request)
     {

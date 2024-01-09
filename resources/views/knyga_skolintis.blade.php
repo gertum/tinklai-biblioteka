@@ -10,10 +10,10 @@
 
     <!-- Display book details received from the controller -->
     <div id="bookDetails">
-        <p>Book ID: {{ $book->id }}</p>
-        <p>Pavadinimas: {{ $book->pavadinimas }}</p>
-        <p>Autorius: {{ $book->autorius }}</p>
-        <p>Leidimo metai: {{ $book->leidimo_metai }}</p>
+        <p>Book ID: {{  $knyga->id }}</p>
+        <p>Pavadinimas: {{  $knyga->pavadinimas }}</p>
+        <p>Autorius: {{  $knyga->autorius }}</p>
+        <p>Leidimo metai: {{  $knyga->leidimo_metai }}</p>
         <!-- Add more book details as needed -->
     </div>
 
@@ -21,7 +21,7 @@
         @csrf
 
         <!-- Hidden input to hold the book's ID -->
-        <input type="hidden" name="book_id" value="{{ $book->id }}">
+        <input type="hidden" name="book_id" value="{{  $knyga->id }}">
 
         <!-- Hidden input to hold the user's ID -->
         <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
