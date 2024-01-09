@@ -16,8 +16,12 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Atšaukti</button>
-                <a href="{{ route('skolintis', ['book_id' => $knyga->id]) }}" class="btn btn-primary">Patvirtinti Skolinimą</a>
+                <form action="{{ route('skolintis', ['book_id' => $knyga->id]) }}" method="POST">
+                    @csrf <!-- Add CSRF token for security -->
+                    <button type="submit" class="btn btn-primary">Patvirtinti Skolinimą</button>
+                </form>
             </div>
+
         </div>
     </div>
 </div>
