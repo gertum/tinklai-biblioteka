@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Bibliotekos sistema</title>
+    <title>Bibliotekos sistema | Skolinimaisi</title>
 </head>
 <body>
 

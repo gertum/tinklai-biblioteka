@@ -11,7 +11,9 @@
 </head>
 <body>
 <header>
-    @if (Auth::check())
+
+
+@if (Auth::check())
         <div>
             <p>Esate prisijungęs kaip: {{ Auth::user()->vardas}}</p>
         </div>
@@ -21,6 +23,9 @@
 
         <a href="{{ route('skolinimaisi') }}">
             <button>Mano skolinimaisi</button>
+        </a>
+        <a href="{{ route('zinutes') }}">
+            <button>Mano žinutės</button>
         </a>
     @else
         <a href="{{ route('login') }}">
@@ -32,6 +37,9 @@
         </a>
 
     @endif
+    <a href="{{ route('knygos') }}">
+        <button>Knygų sąrašas</button>
+    </a>
     <!-- Your header content goes here -->
 </header>
 

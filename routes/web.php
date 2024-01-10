@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KnygosController;
 use App\Http\Controllers\SkolinimaisiController;
+use App\Http\Controllers\ZinutesController;
 use App\Http\Controllers\Auth\LoginController;
 /*
 |--------------------------------------------------------------------------
@@ -22,9 +23,11 @@ Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('register', [LoginController::class, 'showRegisterForm'])->name('register');
 Route::post('register', [LoginController::class, 'register']);
 
-// uhhh
+// skolinimaisi
 Route::post('/skolintis/{knygosId}', [SkolinimaisiController::class, 'skolintis'])->name('skolintis');
 Route::get('/mano-skolinimaisi', [SkolinimaisiController::class, 'manoSkolinimaisi'])->name('skolinimaisi');
+//zinutes
+Route::get('/zinutes', [ZinutesController::class, 'index'])->name('zinutes');
 
 
 // Route for displaying the book list (unfiltered) / HOMEPAGE
