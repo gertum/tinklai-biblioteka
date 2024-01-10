@@ -31,8 +31,7 @@
     @endif
 
 
-    @if(Auth::user()->role->pavadinimas === 'Bibliotekininkas' || Auth::user()->role->pavadinimas === 'Administratorius')
-        {{--        aš turiu daug galios--}}
+    @if(Auth::check() && (Auth::user()->role->pavadinimas === 'Bibliotekininkas' || Auth::user()->role->pavadinimas === 'Administratorius'))        {{--        aš turiu daug galios--}}
         <a href="{{ route('visi-skolinimaisi') }}">
             <button>Pridėti knygą</button>
         </a>
@@ -69,8 +68,7 @@
                     @include('modals.skolintis_confirmation', ['knyga' => $knyga])
 
                 @endif
-                @if(Auth::user()->role->pavadinimas === 'Bibliotekininkas' || Auth::user()->role->pavadinimas === 'Administratorius')
-                    {{--        aš turiu daug galios--}}
+                    @if(Auth::check() && (Auth::user()->role->pavadinimas === 'Bibliotekininkas' || Auth::user()->role->pavadinimas === 'Administratorius'))                    {{--        aš turiu daug galios--}}
 
                     <a href="{{ route('visi-skolinimaisi') }}">
                         <button>Redaguoti knygą</button>
