@@ -29,7 +29,10 @@
         </a>
 
         @if(Auth::user()->role->pavadinimas === 'Bibliotekininkas' || Auth::user()->role->pavadinimas === 'Administratorius')
-        aš turiu daug galios
+{{--        aš turiu daug galios--}}
+            <a href="{{ route('visi-skolinimaisi') }}">
+                <button>Visi skolinimaisi</button>
+            </a>
         @endif
     @else
         <a href="{{ route('login') }}">

@@ -26,6 +26,8 @@ Route::post('register', [LoginController::class, 'register']);
 // skolinimaisi
 Route::post('/skolintis/{knygosId}', [SkolinimaisiController::class, 'skolintis'])->name('skolintis');
 Route::get('/mano-skolinimaisi', [SkolinimaisiController::class, 'manoSkolinimaisi'])->name('skolinimaisi');
+Route::get('/visi-skolinimaisi', [SkolinimaisiController::class, 'visiSkolinimaisi'])->name('visi-skolinimaisi');
+
 //zinutes
 Route::get('/zinutes', [ZinutesController::class, 'index'])->name('zinutes');
 

@@ -37,6 +37,14 @@ class SkolinimaisiController extends Controller
         // Pass the $skolinimaisi data to the view
         return view('skolinimaisi.mano_skolinimaisi', ['skolinimaisi' => $skolinimaisi]);
     }
+    public function visiSkolinimaisi()
+    {
+        // Your logic to fetch the user's loans goes here
+        // Fetching user's loans assuming Auth is used for authentication
+        $skolinimaisi = Skolinimasis::query()->get();
 
+        // Pass the $skolinimaisi data to the view
+        return view('skolinimaisi.visi_skolinimaisi', ['skolinimaisi' => $skolinimaisi]);
+    }
 
 }
