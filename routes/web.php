@@ -29,6 +29,10 @@ Route::get('/mano-skolinimaisi', [SkolinimaisiController::class, 'manoSkolinimai
 Route::get('/visi-skolinimaisi', [SkolinimaisiController::class, 'visiSkolinimaisi'])->name('visi-skolinimaisi');
 Route::put('/zymeti-grazinima/{skolinimasis}', [SkolinimaisiController::class, 'zymetiGrazinima'])->name('zymeti_grazinima');
 
+//knygos valdymas
+Route::delete('/trinti-knyga/{id}', [KnygosController::class, 'trinti'])->name('trinti-knyga');
+
+
 //zinutes
 Route::get('/zinutes', [ZinutesController::class, 'index'])->name('zinutes');
 

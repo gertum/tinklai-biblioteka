@@ -2,7 +2,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="skolintis_confirmation_modal">Patvirtinimas</h5>
+                <h5 class="modal-title" id="skolintis_confirmation_modal">Skolinimasis</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Uždaryti">
                     <span aria-hidden="true">&times;</span>
                 </button>

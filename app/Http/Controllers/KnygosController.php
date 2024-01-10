@@ -9,17 +9,6 @@ use Illuminate\Http\Request;
 
 class KnygosController extends Controller
 {
-    // Display a list of all books
-//    public function sarasas($filter = false)
-//    {
-//        $knygos = Knyga::query()
-//            ->atrinkti($filter)
-//            ->get(); // Fetch books using the scope method
-//
-//        return view('knygu_sarasas', ['knygos' => $knygos, 'filter' => $filter
-//        ]);
-//    }
-
     public function sarasas()
     {
         $knygos = Knyga::all();
@@ -56,6 +45,22 @@ class KnygosController extends Controller
 
         // Redirect to a specific route after successfully storing the book
         return redirect()->route('knygos')->with('success', 'Knyga sėkmingai pridėta!');
+    }
+    public function trinti($id)
+    {
+        $book = Knyga::find($id);
+
+        if (!$book) {
+            return redirect()->back()->with('error', 'Book not found!');
+        }
+
+        // Delete related records first (assuming the foreign key is in 'skolinimaisi' table)
+        $book->skolinimaisi()->delete();
+
+        // Then delete the book
+        $book->delete();
+
+        return redirect()->back()->with('success', 'Knyga sėkmingai ištrinta!');
     }
 
 }
