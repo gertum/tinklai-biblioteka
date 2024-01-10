@@ -1,0 +1,13 @@
+a {
+  text-decoration: none;
+  outline: none;
+}
+
+body {
+  padding: 10px;
+}
+
+div, button, table, h1, h2 {
+  padding: 10px;
+  margin: 20px;
+}

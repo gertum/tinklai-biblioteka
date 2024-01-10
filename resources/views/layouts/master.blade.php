@@ -4,8 +4,10 @@
     {{--bootstrap--}}
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <meta charset="UTF-8">
-    <title>@yield('title')</title>
+{{--    <link href="../../css/app.css" rel="stylesheet">--}}
+    <link href="{{ asset('css/all.css') }}" rel="stylesheet">
 
+    <title>@yield('title')</title>
 </head>
 <body>
 <header>
@@ -21,6 +23,7 @@
         <a href="{{ route('register') }}">
             <button>Registruotis</button>
         </a>
+
     @endif
     <!-- Your header content goes here -->
 </header>

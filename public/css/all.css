@@ -1,0 +1,13 @@
+a {
+    text-decoration: none; /* Remove underline */
+    outline: none; /* Remove outline */
+}
+body {
+    padding: 10px; /* Adjust the value as needed */
+}
+
+/* Apply padding and margin to specific elements */
+div, button, table, h1, h2 {
+    padding: 10px;
+    margin: 20px; /* Adds margin between elements */
+}

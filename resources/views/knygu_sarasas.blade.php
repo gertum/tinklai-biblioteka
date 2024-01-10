@@ -16,16 +16,22 @@
 
 
     @if($filter)
+        <h2>
+            Nepaimtos knygos
+        </h2>>
         <a href="{{ route('knygos') }}">
             <button>Rodyti visas knygas</button>
         </a>
     @else
+        <h2>
+            Knygų sąrašas
+        </h2>
         <a href="{{ route('filtruotos_knygos') }}">
             <button>Rodyti tik nepaimtas knygas</button>
         </a>
     @endif
 
-    <table border="1">
+    <table class="table">
         <thead>
         <tr>
             <th>ID</th>

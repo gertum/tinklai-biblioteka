@@ -1,0 +1,16 @@
+// Reset anchor styles
+a {
+    text-decoration: none; // Remove underline
+    outline: none; // Remove outline
+}
+
+// Apply padding to the body
+body {
+    padding: 10px;
+}
+
+// Apply padding and margin to specific elements
+div, button, table, h1, h2 {
+    padding: 10px;
+    margin: 20px;
+}
