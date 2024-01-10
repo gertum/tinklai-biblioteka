@@ -1,6 +1,6 @@
 <!-- resources/views/auth/login.blade.php -->
 
-
+@extends('layouts.master')
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,11 +23,7 @@
         }
     </script>
 
-    @if(session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-    @endif
+
 
 
     <div class="row justify-content-center">

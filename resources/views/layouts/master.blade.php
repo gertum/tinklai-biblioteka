@@ -16,6 +16,12 @@
     @if (Auth::check())
         <div>
             <p>Esate prisijungęs kaip: {{ Auth::user()->vardas}}</p>
+
+            @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
         </div>
         <a href="{{ route('logout') }}">
             <button>Atsijungti</button>
