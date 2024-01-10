@@ -13,7 +13,7 @@
 <header>
 
 
-@if (Auth::check())
+    @if (Auth::check())
         <div>
             <p>Esate prisijungęs kaip: {{ Auth::user()->vardas}}</p>
         </div>
@@ -27,6 +27,10 @@
         <a href="{{ route('zinutes') }}">
             <button>Mano žinutės</button>
         </a>
+
+        @if(Auth::user()->role->pavadinimas === 'Bibliotekininkas' || Auth::user()->role->pavadinimas === 'Administratorius')
+        aš turiu daug galios
+        @endif
     @else
         <a href="{{ route('login') }}">
             <button>Prisijungti</button>

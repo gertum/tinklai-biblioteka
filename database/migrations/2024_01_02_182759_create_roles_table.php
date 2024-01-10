@@ -9,15 +9,15 @@ class CreateRolesTable extends Migration
     {
         Schema::create('roles', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->string('pavadinimas')->unique();
         });
 
         // Insert the predefined roles into the 'roles' table
         DB::table('roles')->insert([
-            ['name' => 'Bibliotekininkas'],
-            ['name' => 'Administratorius'],
-            ['name' => 'Svečias'],
-            ['name' => 'Lankytojas'],
+            ['pavadinimas' => 'Bibliotekininkas'],
+            ['pavadinimas' => 'Administratorius'],
+            ['pavadinimas' => 'Svečias'],
+            ['pavadinimas' => 'Lankytojas'],
         ]);
     }
 

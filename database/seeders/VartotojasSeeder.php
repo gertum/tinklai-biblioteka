@@ -15,7 +15,7 @@ class VartotojasSeeder extends Seeder
      */
     public function run(): void
     {
-        $adminRole = Role::where('name', 'Administratorius')->first();
+        $adminRole = Role::where('pavadinimas', 'Administratorius')->first();
 
         if ($adminRole) {
             // Create an admin user
@@ -32,7 +32,7 @@ class VartotojasSeeder extends Seeder
 
 
         // Find the Bibliotekininkas role
-        $librarianRole = Role::where('name', 'Bibliotekininkas')->first();
+        $librarianRole = Role::where('pavadinimas', 'Bibliotekininkas')->first();
 
         if ($librarianRole) {
             // Create a librarian user
@@ -48,7 +48,7 @@ class VartotojasSeeder extends Seeder
         }
 
         // Find the Lankytojas role
-        $visitorRole = Role::where('name', 'Lankytojas')->first();
+        $visitorRole = Role::where('pavadinimas', 'Lankytojas')->first();
 
         if ($visitorRole) {
             // Create a visitor user
@@ -65,7 +65,7 @@ class VartotojasSeeder extends Seeder
 
 
         // Find the Svečias role
-        $guestRole = Role::where('name', 'Svečias')->first();
+        $guestRole = Role::where('pavadinimas', 'Svečias')->first();
 
         if ($guestRole) {
             // Create a guest user
