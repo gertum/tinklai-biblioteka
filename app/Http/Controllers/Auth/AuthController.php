@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-class LoginController extends Controller
+class AuthController extends Controller
 {
     public function showLoginForm()
     {
@@ -37,11 +37,11 @@ class LoginController extends Controller
     {
         // Validate the form data
         $validatedData = $request->validate([
-            'vardas' => 'required|string|max:255',
+            'vardas' => 'required|string|max:255|unique:vartotojai,vardas',
             'slaptazodis' => 'required|string|min:8|confirmed', // Ensure slaptazodis matches slaptazodis_confirmation
             // Add any other fields you have in your registration form
         ]);
-        $role = Role::where('name', 'Lankytojas')->first();
+        $role = Role::where('pavadinimas', 'Lankytojas')->first();
 
         // Create a new user based on the validated data
         $user = Vartotojas::create([
