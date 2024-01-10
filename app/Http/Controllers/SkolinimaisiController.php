@@ -3,28 +3,29 @@ namespace App\Http\Controllers;
 
 use App\Models\Skolinimasis;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SkolinimaisiController extends Controller
 {
-public function skolintis(Request $request)
-{
-$validatedData = $request->validate([
-'pradzios_data' => 'required|date',
-'pabaigos_data' => 'required|date|after:pradzios_data',
-'book_id' => 'required|exists:knygos,id',
-'user_id' => 'required|exists:vartotojai,id',
-]);
+    public function skolintis(Request $request, $knygosId)
+    {
+        // Get the authenticated user's ID
+        $userId = Auth::id();
 
-// Create a new loan record based on the validated data
-Skolinimasis::create([
-'pradzios_data' => $validatedData['pradzios_data'],
-'pabaigos_data' => $validatedData['pabaigos_data'],
-'vartotojas_id' => $validatedData['user_id'],
-'knyga_id' => $validatedData['book_id'],
-]);
+        // Calculate date values
+        $startDate = now()->toDateString(); // Today's date
+        $endDate = now()->addMonth()->toDateString(); // One month from now
 
-// Redirect to a specific route after successfully borrowing the book
-return redirect()->route('knygos')->with('success', 'Knyga sėkmingai paskolinta!');
-}
+        // Create a new loan record based on the calculated data
+        Skolinimasis::create([
+            'pradzios_data' => $startDate,
+            'pabaigos_data' => $endDate,
+            'vartotojas_id' => $userId,
+            'knyga_id' => $knygosId,
+        ]);
+
+        // Redirect to a specific route after successfully borrowing the book
+        return redirect()->route('knygos')->with('success', 'Knyga sėkmingai paskolinta!');
+    }
 
 }

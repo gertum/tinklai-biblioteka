@@ -7,6 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Skolinimasis extends Model {
     protected $table = 'skolinimaisi'; // Define the table name explicitly
 
+    protected $fillable = [
+        'pradzios_data',
+        'pabaigos_data',
+        'vartotojas_id',
+        'knyga_id',
+        // Add other fields here as needed
+    ];
+
     public $timestamps = false;
     // Define the relationship between Skolinimasis and Knyga
     public function knyga()

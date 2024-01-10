@@ -18,7 +18,7 @@
     @if($filter)
         <h2>
             Nepaimtos knygos
-        </h2>>
+        </h2>
         <a href="{{ route('knygos') }}">
             <button>Rodyti visas knygas</button>
         </a>
