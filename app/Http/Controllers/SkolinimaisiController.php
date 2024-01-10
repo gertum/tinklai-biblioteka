@@ -46,5 +46,12 @@ class SkolinimaisiController extends Controller
         // Pass the $skolinimaisi data to the view
         return view('skolinimaisi.visi_skolinimaisi', ['skolinimaisi' => $skolinimaisi]);
     }
+    public function zymetiGrazinima(Skolinimasis $skolinimasis) {
+        // Update the 'grazinimo_data' attribute for the book
+        $skolinimasis->update(['grazinimo_data' => now()]);
+
+        // Redirect back or wherever needed after the update
+        return redirect()->back()->with('success', 'Grąžinimas pažymėtas sėkmingai!');
+    }
 
 }

@@ -22,6 +22,7 @@
             <th>Knygos Autorius</th>
             <th>Skolinimosi pradžia</th>
             <th>Skolinimosi pabaiga</th>
+            <th>Grąžinimo data</th>
         </tr>
         </thead>
         <tbody>
@@ -32,6 +33,17 @@
                 <td>{{ $skolinimasis->knyga->autorius }}</td>
                 <td>{{ $skolinimasis->pradzios_data }}</td>
                 <td>{{ $skolinimasis->pabaigos_data }}</td>
+                <td>{{ $skolinimasis->grazinimo_data }}</td>
+                <td>
+                    @if(!$skolinimasis->grazinimo_data)
+                        <form action="{{ route('zymeti_grazinima', ['skolinimasis' => $skolinimasis->id]) }}" method="POST">
+                            @csrf <!-- Add CSRF token for security -->
+                            @method('PUT') <!-- Use PUT method for updating -->
+
+                            <button type="submit">Žymėti grąžinimą</button>
+                        </form>
+                    @endif
+                </td>
             </tr>
         @endforeach
         </tbody>

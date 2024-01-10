@@ -21,6 +21,7 @@
             <th>Knygos Autorius</th>
             <th>Skolinimosi pradžia</th>
             <th>Skolinimosi pabaiga</th>
+            <th>Grąžinimo data</th>
             <!-- Add more columns if needed -->
         </tr>
         </thead>
@@ -31,6 +32,7 @@
                 <td>{{ $skolinimasis->knyga->autorius }}</td>
                 <td>{{ $skolinimasis->pradzios_data }}</td>
                 <td>{{ $skolinimasis->pabaigos_data }}</td>
+                <td>{{ $skolinimasis->grazinimo_data }}</td>
                 <!-- Display other skolinimai details -->
             </tr>
         @endforeach

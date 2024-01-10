@@ -27,6 +27,7 @@ Route::post('register', [LoginController::class, 'register']);
 Route::post('/skolintis/{knygosId}', [SkolinimaisiController::class, 'skolintis'])->name('skolintis');
 Route::get('/mano-skolinimaisi', [SkolinimaisiController::class, 'manoSkolinimaisi'])->name('skolinimaisi');
 Route::get('/visi-skolinimaisi', [SkolinimaisiController::class, 'visiSkolinimaisi'])->name('visi-skolinimaisi');
+Route::put('/zymeti-grazinima/{skolinimasis}', [SkolinimaisiController::class, 'zymetiGrazinima'])->name('zymeti_grazinima');
 
 //zinutes
 Route::get('/zinutes', [ZinutesController::class, 'index'])->name('zinutes');

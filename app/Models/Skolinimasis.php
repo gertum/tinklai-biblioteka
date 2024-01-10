@@ -12,6 +12,7 @@ class Skolinimasis extends Model {
         'pabaigos_data',
         'vartotojas_id',
         'knyga_id',
+        'grazinimo_data',
         // Add other fields here as needed
     ];
 
