@@ -10,7 +10,6 @@
 <body>
 
 
-
 @section('content')
     <h1>Sveiki atvykę į bibliotekos sistemą!</h1>
 
@@ -54,17 +53,17 @@
                 <td>{{ $knyga->laisvi_egzemplioriai }}</td>
 
 
-                    @if (Auth::check())
+                @if (Auth::check() && $knyga->laisvi_egzemplioriai > 0)
                     <td>
 
-                            <a href="#" data-toggle="modal" data-target="#skolintis_confirmation{{$knyga->id}}">
-                                Skolintis
-                            </a>
+                        <a href="#" data-toggle="modal" data-target="#skolintis_confirmation{{$knyga->id}}">
+                            Skolintis
+                        </a>
 
-                            @include('modals.skolintis_confirmation', ['knyga' => $knyga])
+                        @include('modals.skolintis_confirmation', ['knyga' => $knyga])
 
                     </td>
-                    @endif
+                @endif
 
             </tr>
         @endforeach
@@ -76,7 +75,6 @@
         <p>T120B145 Kompiuterių tinklai ir internetinės technologijos</p>
     </footer>
 @endsection
-
 
 
 </body>
