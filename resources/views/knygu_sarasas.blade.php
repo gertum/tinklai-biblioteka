@@ -30,6 +30,13 @@
         </a>
     @endif
 
+
+    @if(Auth::user()->role->pavadinimas === 'Bibliotekininkas' || Auth::user()->role->pavadinimas === 'Administratorius')
+        {{--        aš turiu daug galios--}}
+        <a href="{{ route('visi-skolinimaisi') }}">
+            <button>Pridėti knygą</button>
+        </a>
+    @endif
     <table class="table">
         <thead>
         <tr>
@@ -44,27 +51,37 @@
         </thead>
         <tbody>
         @foreach($knygos as $knyga)
-            <tr>
-                <td>{{ $knyga->id }}</td>
-                <td>{{ $knyga->pavadinimas }}</td>
-                <td>{{ $knyga->autorius }}</td>
-                <td>{{ $knyga->leidimo_metai }}</td>
-                <td>{{ $knyga->egzemplioriu_skaicius }}</td>
-                <td>{{ $knyga->laisvi_egzemplioriai }}</td>
 
+            <td>{{ $knyga->id }}</td>
+            <td>{{ $knyga->pavadinimas }}</td>
+            <td>{{ $knyga->autorius }}</td>
+            <td>{{ $knyga->leidimo_metai }}</td>
+            <td>{{ $knyga->egzemplioriu_skaicius }}</td>
+            <td>{{ $knyga->laisvi_egzemplioriai }}</td>
 
+            <td>
                 @if (Auth::check() && $knyga->laisvi_egzemplioriai > 0)
-                    <td>
 
-                        <a href="#" data-toggle="modal" data-target="#skolintis_confirmation{{$knyga->id}}">
-                            Skolintis
-                        </a>
+                    <a href="#" data-toggle="modal" data-target="#skolintis_confirmation{{$knyga->id}}">
+                        <button>Skolintis</button>
+                    </a>
 
-                        @include('modals.skolintis_confirmation', ['knyga' => $knyga])
+                    @include('modals.skolintis_confirmation', ['knyga' => $knyga])
 
-                    </td>
                 @endif
+                @if(Auth::user()->role->pavadinimas === 'Bibliotekininkas' || Auth::user()->role->pavadinimas === 'Administratorius')
+                    {{--        aš turiu daug galios--}}
 
+                    <a href="{{ route('visi-skolinimaisi') }}">
+                        <button>Redaguoti knygą</button>
+                    </a>
+
+                    <a href="#" data-toggle="modal" data-target="#trinti_knyga_confirmation{{$knyga->id}}">
+                        <button>Šalinti knygą</button>
+                    </a>
+                    @include('modals.trinti_knyga_confirmation', ['knyga' => $knyga])
+                @endif
+            </td>
             </tr>
         @endforeach
         </tbody>
