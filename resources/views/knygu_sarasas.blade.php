@@ -31,10 +31,14 @@
     @endif
 
 
-    @if(Auth::check() && (Auth::user()->role->pavadinimas === 'Bibliotekininkas' || Auth::user()->role->pavadinimas === 'Administratorius'))        {{--        aš turiu daug galios--}}
-        <a href="{{ route('visi-skolinimaisi') }}">
+    @if(Auth::check() && (Auth::user()->role->pavadinimas === 'Bibliotekininkas' || Auth::user()->role->pavadinimas === 'Administratorius'))
+        {{--        aš turiu daug galios--}}
+        <a href="#" data-toggle="modal" data-target="#prideti_knyga">
             <button>Pridėti knygą</button>
         </a>
+        @include('modals.prideti_knyga')
+
+
     @endif
     <table class="table">
         <thead>
@@ -68,11 +72,13 @@
                     @include('modals.skolintis_confirmation', ['knyga' => $knyga])
 
                 @endif
-                    @if(Auth::check() && (Auth::user()->role->pavadinimas === 'Bibliotekininkas' || Auth::user()->role->pavadinimas === 'Administratorius'))                    {{--        aš turiu daug galios--}}
+                @if(Auth::check() && (Auth::user()->role->pavadinimas === 'Bibliotekininkas' || Auth::user()->role->pavadinimas === 'Administratorius'))
+                    {{--        aš turiu daug galios--}}
 
-                    <a href="{{ route('visi-skolinimaisi') }}">
-                        <button>Redaguoti knygą</button>
-                    </a>
+                        <a href="#" data-toggle="modal" data-target="#redaguoti_knyga{{$knyga->id}}">
+                            <button>Redaguoti knygą</button>
+                        </a>
+                        @include('modals.redaguoti_knyga', ['knyga' => $knyga])
 
                     <a href="#" data-toggle="modal" data-target="#trinti_knyga_confirmation{{$knyga->id}}">
                         <button>Šalinti knygą</button>

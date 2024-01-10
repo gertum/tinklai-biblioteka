@@ -9,6 +9,14 @@ class Knyga extends Model
 {
     protected $table = 'knygos'; // Define the table name explicitly
 
+    protected $fillable = [
+        'pavadinimas',
+        'autorius',
+        'leidimo_metai',
+        'egzemplioriu_skaicius',
+        // Add other fields here as needed
+    ];
+
     public $timestamps = false;
 
     // Define the relationship between Knyga and Skolinimasis

@@ -31,7 +31,8 @@ Route::put('/zymeti-grazinima/{skolinimasis}', [SkolinimaisiController::class, '
 
 //knygos valdymas
 Route::delete('/trinti-knyga/{id}', [KnygosController::class, 'trinti'])->name('trinti-knyga');
-
+Route::post('/store-book', [KnygosController::class, 'store'])->name('store-book');
+Route::put('/update-book/{id}', [KnygosController::class, 'update'])->name('update-book');
 
 //zinutes
 Route::get('/zinutes', [ZinutesController::class, 'index'])->name('zinutes');
