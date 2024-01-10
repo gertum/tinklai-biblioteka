@@ -22,6 +22,8 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('register', [AuthController::class, 'showRegisterForm'])->name('register');
 Route::post('register', [AuthController::class, 'register']);
+Route::get('register-librarian', [AuthController::class, 'showLibrarianRegisterForm'])->name('register-librarian');
+Route::post('register-librarian', [AuthController::class, 'registerLibrarian']);
 
 // skolinimaisi
 Route::post('/skolintis/{knygosId}', [SkolinimaisiController::class, 'skolintis'])->name('skolintis');
