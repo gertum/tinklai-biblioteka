@@ -28,4 +28,15 @@ class SkolinimaisiController extends Controller
         return redirect()->route('knygos')->with('success', 'Knyga sėkmingai paskolinta!');
     }
 
+    public function manoSkolinimaisi()
+    {
+        // Your logic to fetch the user's loans goes here
+        // Fetching user's loans assuming Auth is used for authentication
+        $skolinimaisi = Skolinimasis::where('vartotojas_id', auth()->id())->get();
+
+        // Pass the $skolinimaisi data to the view
+        return view('skolinimaisi.mano_skolinimaisi', ['skolinimaisi' => $skolinimaisi]);
+    }
+
+
 }

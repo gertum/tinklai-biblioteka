@@ -12,8 +12,15 @@
 <body>
 <header>
     @if (Auth::check())
+        <div>
+            <p>Esate prisijungęs kaip: {{ Auth::user()->vardas}}</p>
+        </div>
         <a href="{{ route('logout') }}">
             <button>Atsijungti</button>
+        </a>
+
+        <a href="{{ route('skolinimaisi') }}">
+            <button>Mano skolinimaisi</button>
         </a>
     @else
         <a href="{{ route('login') }}">
@@ -32,11 +39,11 @@
     @yield('content')
 </main>
 
-<footer>
-    <!-- Your footer content goes here -->
-</footer>
 
-<!-- Bootstrap JS and jQuery -->
+    <footer>
+        <p>© 2024 Gerda Tumelytė</p>
+        <p>T120B145 Kompiuterių tinklai ir internetinės technologijos</p>
+    </footer>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <!-- Add your additional JavaScript files here -->

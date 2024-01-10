@@ -24,6 +24,7 @@ Route::post('register', [LoginController::class, 'register']);
 
 // uhhh
 Route::post('/skolintis/{knygosId}', [SkolinimaisiController::class, 'skolintis'])->name('skolintis');
+Route::get('/mano-skolinimaisi', [SkolinimaisiController::class, 'manoSkolinimaisi'])->name('skolinimaisi');
 
 
 // Route for displaying the book list (unfiltered) / HOMEPAGE

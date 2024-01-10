@@ -70,10 +70,6 @@
         </tbody>
     </table>
 
-    <footer>
-        <p>© 2024 Gerda Tumelytė</p>
-        <p>T120B145 Kompiuterių tinklai ir internetinės technologijos</p>
-    </footer>
 @endsection
 
 
