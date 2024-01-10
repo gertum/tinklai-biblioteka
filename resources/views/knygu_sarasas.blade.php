@@ -56,16 +56,13 @@
 
                     @if (Auth::check())
                     <td>
-                        <a href="{{ route('logout') }}">
-{{--                            <a href="{{ route('skolintis', ['book_id' => $knyga->id]) }}">Skolintis</a>--}}
-
 
                             <a href="#" data-toggle="modal" data-target="#skolintis_confirmation{{$knyga->id}}">
                                 Skolintis
                             </a>
 
                             @include('modals.skolintis_confirmation', ['knyga' => $knyga])
-                        </a>
+
                     </td>
                     @endif
 
