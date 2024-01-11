@@ -44,8 +44,9 @@ class SkolinimasisSeeder extends Seeder
 
                 // Create a Skolinimasis instance for the second book
                 $skolinimasis2 = new Skolinimasis([
-                    'pradzios_data' => now(),
-                    'pabaigos_data' => now()->addDays(31),
+                    'pradzios_data' => now()->subDays(62),
+                    'pabaigos_data' => now()->subDays(31),
+                    'grazinimo_data' => now(),
                 ]);
                 $skolinimasis2->vartotojas()->associate($lankytojasUser);
                 $skolinimasis2->knyga()->associate($randomBook2);

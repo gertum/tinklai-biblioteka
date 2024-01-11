@@ -46,6 +46,7 @@ Route::put('/update-book/{id}', [KnygosController::class, 'update'])->name('upda
 
 //zinutes
 Route::get('/zinutes', [ZinutesController::class, 'index'])->name('zinutes');
+Route::post('/zinutes/create', [ZinutesController::class, 'create'])->name('zinutes.create');
 
 
 // Route for displaying the book list (unfiltered) / HOMEPAGE

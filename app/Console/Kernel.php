@@ -12,9 +12,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
+//        cd /home/ger/projects/tinklai/bibliotekos_sistema && php artisan schedule:run >> /dev/null 2>&1
+        $schedule->command('check:due-dates')->daily();
     }
-
     /**
      * Register the commands for the application.
      */
