@@ -16,7 +16,6 @@ class CreateRolesTable extends Migration
         DB::table('roles')->insert([
             ['pavadinimas' => 'Bibliotekininkas'],
             ['pavadinimas' => 'Administratorius'],
-            ['pavadinimas' => 'Svečias'],
             ['pavadinimas' => 'Lankytojas'],
         ]);
     }

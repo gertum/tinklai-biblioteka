@@ -9,7 +9,7 @@ outline: none;
        padding: 10px;
    }
 
-   div, button, table, h1, h2 {
+   button, table, h1, h2 {
        padding: 10px;
        margin: 20px;
    }

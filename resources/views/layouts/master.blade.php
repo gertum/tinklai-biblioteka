@@ -28,9 +28,11 @@
                 </div>
             @endif
         </div>
-        <a href="{{ route('logout') }}">
-            <button>Atsijungti</button>
-        </a>
+        <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button type="submit">Atsijungti</button>
+        </form>
+
 
         <a href="{{ route('skolinimaisi') }}">
             <button>Mano skolinimaisi</button>
@@ -51,6 +53,7 @@
             </a>
         @endif
     @else
+        <div>
         <a href="{{ route('login') }}">
             <button>Prisijungti</button>
         </a>
@@ -58,7 +61,7 @@
         <a href="{{ route('register') }}">
             <button>Registruotis</button>
         </a>
-
+        </div>
     @endif
     <a href="{{ route('knygos') }}">
         <button>Knygų sąrašas</button>

@@ -63,23 +63,6 @@ class VartotojasSeeder extends Seeder
             $this->command->info('Lankytojas role not found.');
         }
 
-
-        // Find the Svečias role
-        $guestRole = Role::where('pavadinimas', 'Svečias')->first();
-
-        if ($guestRole) {
-            // Create a guest user
-            Vartotojas::create([
-                'role_id' => $guestRole->id,
-                'vardas' => 'guest_user', // Adjust the username as needed
-                'slaptazodis' => Hash::make('guest_password'), // Change 'guest_password' to the desired password
-                // Add other attributes if needed
-            ]);
-        } else {
-            // If the Svečias role is not found
-            $this->command->info('Svečias role not found.');
-        }
-
     }
 
 
