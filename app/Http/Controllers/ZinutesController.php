@@ -23,22 +23,22 @@ class ZinutesController extends Controller
     {
         // Validate the incoming request data
         $request->validate([
-            'sender_id' => 'required|exists:vartotojai,id',
-            'receiver_id' => 'required|exists:vartotojai,id',
+            'siuncia_vartotojas_id' => 'required|exists:vartotojai,id',
+            'gauna_vartotojas_id' => 'required|exists:vartotojai,id',
             'tekstas' => 'required',
         ]);
 
         // Create a new Zinute instance
         $zinute = new Zinute([
             'tekstas' => $request->input('tekstas'),
-            'siuncia_vartotojas_id' => $request->input('sender_id'),
-            'gauna_vartotojas_id' => $request->input('receiver_id'),
+            'siuncia_vartotojas_id' => $request->input('siuncia_vartotojas_id'),
+            'gauna_vartotojas_id' => $request->input('gauna_vartotojas_id'),
         ]);
 
         // Save the Zinute to the database
         $zinute->save();
 
         // You can redirect or do other actions after creating the Zinute
-        return redirect()->route('zinutes.index');
+        return redirect()->route('zinutes');
     }
 }

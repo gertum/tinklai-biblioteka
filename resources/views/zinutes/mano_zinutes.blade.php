@@ -28,7 +28,7 @@
         @foreach($gautosZinutes as $zinute)
             <tr>
 {{--                <td>{{ $zinute->id }}</td>--}}
-                <td>{{ optional($zinute->siucia)->username }}</td>
+                <td>{{ optional($zinute->siuncia)->vardas }}</td>
                 <td>{{ $zinute->tekstas }}</td>
                 <!-- Display other message details -->
             </tr>
@@ -39,6 +39,12 @@
     <h2>
         Išsiųstos žinutės
     </h2>
+        <a href="#" data-toggle="modal" data-target="#zinutes_siuntimas">
+            <button>Kurti naują žinutę</button>
+        </a>
+
+        @include('modals.zinutes_siuntimas')
+
     <table class="table">
         <thead>
         <tr>
@@ -53,18 +59,13 @@
         @foreach($issiustosZinutes as $zinute)
             <tr>
                 {{--                <td>{{ $zinute->id }}</td>--}}
-                <td>{{ optional($zinute->gauna)->username }}</td>
+                <td>{{ ($zinute->gauna)->vardas }}</td>
                 <td>{{ $zinute->tekstas }}</td>
                 <!-- Display other message details -->
             </tr>
         @endforeach
         </tbody>
     </table>
-{{--    <a href="#" data-toggle="modal" data-target="#skolintis_confirmation{{$knyga->id}}">--}}
-{{--        <button>Skolintis</button>--}}
-{{--    </a>--}}
-
-{{--    @include('modals.skolintis_confirmation', ['knyga' => $knyga])--}}
 
 @endsection
 
