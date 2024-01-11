@@ -12,15 +12,17 @@
                     @csrf <!-- Add CSRF token for security -->
 
                     <div class="form-group">
-                        <label for="siuncia_vartotojas_vardas">Siuntėjas:</label>
-                        <input type="text" class="form-control" id="siuncia_vartotojas_vardas" name="siuncia_vartotojas_vardas" value="{{ auth()->user()->vardas }}" readonly>
+                        <label for="siuncia_vartotojas_id">Siuntėjas:</label>
+                        <input type="text" class="form-control" id="siuncia_vartotojas_name" name="siuncia_vartotojas_name" value="{{ auth()->user()->vardas }}" readonly>
+                        <input type="hidden" id="siuncia_vartotojas_id" name="siuncia_vartotojas_id" value="{{ auth()->id() }}">
                     </div>
+
 
                     <div class="form-group">
-                        <label for="gauna_vartotojas_vardas">Gavėjas:</label>
-                        <input type="text" class="form-control" id="gauna_vartotojas_vardas" name="gauna_vartotojas_vardas" placeholder="Pasirinkite gavėją" required>
+                        <label for="gauna_vartotojas_id">Gavėjo id:</label>
+                        <input type="text" class="form-control" id="gauna_vartotojas_id" name="gauna_vartotojas_id" placeholder="Pasirinkite gavėją" required>
+                        <!-- Add your autocomplete logic here -->
                     </div>
-
 
                     <div class="form-group">
                         <label for="tekstas">Žinutės Tekstas:</label>

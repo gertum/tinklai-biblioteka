@@ -4,6 +4,8 @@ namespace App\Console\Commands;
 
 use App\Models\Skolinimasis;
 use Illuminate\Console\Command;
+use App\Http\Controllers\ZinutesController;
+use Illuminate\Http\Request;
 
 class CheckDueDates extends Command
 {
@@ -34,8 +36,17 @@ class CheckDueDates extends Command
             ->get();
 
         foreach ($skolinimaisi as $skolinimasis) {
-            // Send notification to the user about the approaching due date
-            // Example: $book->vartotojas->notify(new DueDateApproachingNotification($book));
+            $data = [
+                'siuncia_vartotojas_id' => $skolinimasis->siuncia_vartotojas_id,
+                'gauna_vartotojas_id' => $skolinimasis->gauna_vartotojas_id,
+                'tekstas' => 'Your default message or customize as needed',
+            ];
+
+            // Create an instance of the ZinutesController
+            $zinutesController = new ZinutesController;
+
+            // Create Zinute by calling the create method
+            $zinutesController->create(new Request($data));
         }
     }
 }
