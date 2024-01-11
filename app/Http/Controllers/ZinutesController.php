@@ -39,6 +39,6 @@ class ZinutesController extends Controller
         $zinute->save();
 
         // You can redirect or do other actions after creating the Zinute
-        return redirect()->route('zinutes');
+        return redirect()->route('zinutes')->with('success', "Žinutė sėkmingai išsiųsta");
     }
 }
