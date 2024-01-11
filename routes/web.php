@@ -22,19 +22,27 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('register', [AuthController::class, 'showRegisterForm'])->name('register');
 Route::post('register', [AuthController::class, 'register']);
+
+Route::middleware(['role:Administratorius'])->group(function () {
 Route::get('register-librarian', [AuthController::class, 'showLibrarianRegisterForm'])->name('register-librarian');
 Route::post('register-librarian', [AuthController::class, 'registerLibrarian']);
+});
 
 // skolinimaisi
 Route::post('/skolintis/{knygosId}', [SkolinimaisiController::class, 'skolintis'])->name('skolintis');
 Route::get('/mano-skolinimaisi', [SkolinimaisiController::class, 'manoSkolinimaisi'])->name('skolinimaisi');
+
+Route::middleware(['role:Bibliotekininkas,Administratorius'])->group(function () {
 Route::get('/visi-skolinimaisi', [SkolinimaisiController::class, 'visiSkolinimaisi'])->name('visi-skolinimaisi');
 Route::put('/zymeti-grazinima/{skolinimasis}', [SkolinimaisiController::class, 'zymetiGrazinima'])->name('zymeti_grazinima');
+});
 
 //knygos valdymas
+Route::middleware(['role:Bibliotekininkas,Administratorius'])->group(function () {
 Route::delete('/trinti-knyga/{id}', [KnygosController::class, 'trinti'])->name('trinti-knyga');
 Route::post('/store-book', [KnygosController::class, 'store'])->name('store-book');
 Route::put('/update-book/{id}', [KnygosController::class, 'update'])->name('update-book');
+});
 
 //zinutes
 Route::get('/zinutes', [ZinutesController::class, 'index'])->name('zinutes');
