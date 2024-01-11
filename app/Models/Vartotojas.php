@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
+use Illuminate\Support\Facades\DB;
 
 class Vartotojas extends Model implements Authenticatable{
     protected $table = 'vartotojai'; // Define the table name explicitly
@@ -57,4 +58,16 @@ class Vartotojas extends Model implements Authenticatable{
         return $this->slaptazodis;
     }
     use HasFactory, AuthenticatableTrait;
+
+    public function getHasLateSkolinimaisiAttribute()
+    {
+//        DB::enableQueryLog();
+        $test = $this->skolinimaisi()
+            ->whereNull('grazinimo_data')
+            ->where('pabaigos_data', '<', now())
+            ->exists();
+
+//        dd(DB::getQueryLog());
+        return $test;
+    }
 }

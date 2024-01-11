@@ -63,7 +63,7 @@
             <td>{{ $knyga->laisvi_egzemplioriai }}</td>
 
             <td>
-                @if (Auth::check() && $knyga->laisvi_egzemplioriai > 0)
+                @if (Auth::check() && $knyga->laisvi_egzemplioriai > 0 && !Auth::user()->hasLateSkolinimaisi)
 
                     <a href="#" data-toggle="modal" data-target="#skolintis_confirmation{{$knyga->id}}">
                         <button>Skolintis</button>
