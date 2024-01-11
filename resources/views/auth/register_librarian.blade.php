@@ -1,4 +1,6 @@
 <!-- resources/views/auth/register.blade.php -->
+
+@extends('layouts.mistress')
 <!DOCTYPE html>
 <html lang="lt">
 <head>

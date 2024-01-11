@@ -10,6 +10,12 @@
 </head>
 
 <header>
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
     <a href="{{ route('knygos') }}">
         <button>Knygų sąrašas</button>
     </a>
