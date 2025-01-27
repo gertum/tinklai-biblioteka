@@ -34,7 +34,8 @@ Svečias gali užsiregistruoti sistemoje, peržiūrėti knygų sąrašą, perži
 
 3. Duomenų bazės loginis modelis
 
-![image](https://github.com/user-attachments/assets/76bafbdb-1a61-4d27-ae95-f6269d64d050)
+![image](https://github.com/user-attachments/assets/eccd38b5-88ec-46b8-9c80-cd91d2fbb29f)
+
 
 4. Vartotojų darbo aplinkos
 4.1. Registracija
